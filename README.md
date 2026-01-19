@@ -20,31 +20,31 @@ To use properly on Windows 9x, run the [Microsoft Layer for Unicode Redistributa
 
 ## Usage
 
-Usage: pbgtk extract version in_dat out_folder (--rename (preset))
+Usage: ```pbgtk extract version in_dat out_folder (--rename (preset))```
 
-OR     pbgtk pack version in_folder out_dat (--remove-extensions)
+OR     ```pbgtk pack version in_folder out_dat (--remove-extensions)```
 
 Version can be:
 
-1 - PBG1A
+`1` - PBG1A
 
-3 - PBG3
+`3` - PBG3
 
-4 - PBG4
+`4` - PBG4
 
-5 - PBG5
+`5` - PBG5
 
-6 - PBG6
+`6` - PBG6
 
-PBG1A packfiles (in Seihou 1) do not have filenames, and PBG3 packfiles (in Seihou 2) do not have file extensions. Thus, the --rename option is available to give these files more intuitive names.
+PBG1A packfiles (in Seihou 1) do not have filenames, and PBG3 packfiles (in Seihou 2) do not have file extensions. Thus, the `--rename` option is available to give these files more intuitive names.
 
 Auto-renaming presets:
 
-For Seihou 1 (PBG1A): enemy, graph, graph2, music, or sound
+For Seihou 1 (PBG1A): `enemy`, `graph`, `graph2`, `music`, or `sound`
 
-For Seihou 2 (PBG3): enemy, graph, graph2, graph3, music, or sound
+For Seihou 2 (PBG3): `enemy`, `graph`, `graph2`, `graph3`, `music`, or `sound`
 
-(--remove-extensions must be used when packing if --rename was used to extract a Seihou 2 packfile!)
+(`--remove-extensions` must be used when packing if `--rename` was used to extract a Seihou 2 packfile!)
 
 Examples:
 - `pbgtk extract 5 Grp.ac5 Grp` (extracts all files from packfile Grp.ac5 to folder Grp)
