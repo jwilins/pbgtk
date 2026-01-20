@@ -49,7 +49,8 @@ int pbg4Extract(wchar_t inDatName[], wchar_t outFolderName[])
 		return -5;
 	}
 
-	// Get compressed table of contents size
+	// Get compressed table of contents size, using the difference between
+	// packfile size and TOC offset
 	struct _stat s;
 	_wstat(inDatName, &s);
 	size_t compressedTOCSize = s.st_size - curr4Header.tocOffset;

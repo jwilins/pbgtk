@@ -90,7 +90,7 @@ int searchAndPack(const wchar_t* folderName, FILE* outDat, std::vector<PBG3FileI
 {
 	WIN32_FIND_DATAW ffd;
 	HANDLE hFind = INVALID_HANDLE_VALUE;
-	// Set file serach path
+	// Set file search path
 	wchar_t searchPath[MAX_PATH];
 	swprintf(searchPath, L"%ls\\*", folderName);
 

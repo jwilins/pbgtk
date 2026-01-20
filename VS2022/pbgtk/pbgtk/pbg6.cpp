@@ -240,7 +240,7 @@ int pbg6Extract(wchar_t inDatName[], wchar_t outFolderName[])
 		return -5;
 	}
 
-	// Get table of contents size, using the difference between
+	// Get compressed table of contents size, using the difference between
 	// packfile size and TOC offset
 	struct _stat s;
 	_wstat(inDatName, &s);

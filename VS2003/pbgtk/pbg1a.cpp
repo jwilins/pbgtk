@@ -34,10 +34,9 @@ int pbg1AExtract(wchar_t inDatName[], wchar_t outFolderName[], std::wstring rena
 		return -1;
 	}
 
-	// Read in packfile header
+	// Read in packfile header and check magic
 	PBG1AHeader curr1AHeader = { 0 };
 	fread(&curr1AHeader, sizeof(PBG1AHeader), 1, inDat);
-
 	if (curr1AHeader.magic != '\x1AGBP') {	// PBG1A
 		printf("Not a valid packfile!\n");
 		return -2;
@@ -284,7 +283,7 @@ int pbg1APack(wchar_t inFolderName[], wchar_t outDatName[])
 				uint8_t currByte = compressedData[byteIndex];
 				curr1AFileInfo.compressedChecksum += currByte;
 			}
-			// Increment the packfile checksum using the file's checksum,
+			// Increment the packfile checksum using the current file's checksum,
 			// uncompressed size, and offset
 			curr1AHeader.checksum += curr1AFileInfo.compressedChecksum;
 			curr1AHeader.checksum += curr1AFileInfo.uncompressedSize;
@@ -294,7 +293,7 @@ int pbg1APack(wchar_t inFolderName[], wchar_t outDatName[])
 		}
 	} while (FindNextFileW(hFind, &ffd) && fileIndex < curr1AHeader.numOfFiles);
 
-	//Rewrite proper header
+	// Rewrite proper header and table of contents
 	fseek(outDat, 0, SEEK_SET);
 	curr1AHeader.magic = '\x1AGBP';	// PBG\x1A
 	fwrite(&curr1AHeader, sizeof(PBG1AHeader), 1, outDat);

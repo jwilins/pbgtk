@@ -56,3 +56,11 @@ Examples:
 Graphics can be modified using a preferred photo editor (just make sure it supports indexed-color bitmaps properly in the case of Seihou 1 and some of 2). To modify stage and dialogue scripts (ECL, SCL, etc.), use [SSGtk](https://github.com/Clb184/SSGtk), [KOGtk](https://github.com/Clb184/KOGtk), [BSRtk_C67](https://github.com/Clb184/BSRtk_C67), or [BSRtk](https://github.com/Clb184/BSRtk), depending on the game. Tools are in the works for modifying Samidare scripts at the moment.
 
 Have fun modding/translating! :)
+
+## Special Thanks
+
+- [nmlgc](https://github.com/nmlgc) (C++ LZSS and range coder implementation; documentation of PBG1A and PBG6)
+- [thtk Developers](https://github.com/thpatch/thtk) (Optimized LZSS compression; documentation of PBG3 and PBG4)
+- [PyTouhou Developers](https://github.com/GovanifY/PyTouhou/blob/master/doc/PBG3) (Further documentation of PBG3 and its bitstreams)
+- [ExpHP](https://github.com/ExpHP) (Documentation of PBG5)
+- [Clb184](https://github.com/Clb184) (Making tools for modifying stage and dialogue scripts from Seihou games)

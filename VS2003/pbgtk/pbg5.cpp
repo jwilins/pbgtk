@@ -50,7 +50,7 @@ int pbg5Extract(wchar_t inDatName[], wchar_t outFolderName[])
 		return -5;
 	}
 
-	// Get table of contents size, using the difference between
+	// Get compressed table of contents size, using the difference between
 	// packfile size and TOC offset
 	struct _stat s;
 	_wstat(inDatName, &s);
@@ -254,7 +254,7 @@ int pbg5Pack(wchar_t inFolderName[], wchar_t outDatName[])
 	fwrite(&compressedTOC[0], compressedTOC.size(), 1, outDat);
 	delete[] toCompress;
 
-	//Rewrite proper header
+	// Rewrite proper header
 	curr5Header.magic = '5GBP';
 	fseek(outDat, 0, SEEK_SET);
 	fwrite(&curr5Header, sizeof(PBG5Header), 1, outDat);

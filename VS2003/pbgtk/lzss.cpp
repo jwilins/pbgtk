@@ -77,16 +77,16 @@ static inline unsigned int generate_key(unsigned char* array, const unsigned int
 
 static inline void list_remove(hash_t* hash, const unsigned int key, const unsigned int offset)
 {
-	/* This function always removes the last entry in the list,
-	 * or no entry at all. */
+	// This function always removes the last entry in the list,
+	// or no entry at all
 
-	 /* Set any previous entry's next pointer to HASH_NULL. */
+	// Set any previous entry's next pointer to HASH_NULL
 	hash->next[hash->prev[offset]] = 0;
 
-	/* XXX: This condition is not neccessary, but it might
-	 * help optimization by not having to generate the key. */
+	// XXX: This condition is not neccessary, but it might
+	// help optimization by not having to generate the key
 	if (hash->prev[offset] == 0)
-		/* If the entry being removed was the head, clear the head. */
+		// If the entry being removed was the head, clear the head
 		if (hash->hash[key] == offset)
 			hash->hash[key] = 0;
 }
@@ -95,7 +95,7 @@ static inline void list_add(hash_t* hash, const unsigned int key, const unsigned
 {
 	hash->next[offset] = hash->hash[key];
 	hash->prev[offset] = 0;
-	/* Update the previous pointer of the old head. */
+	// Update the previous pointer of the old head
 	hash->prev[hash->hash[key]] = offset;
 	hash->hash[key] = offset;
 }
